@@ -19,9 +19,11 @@ export class HomelistComponent implements OnInit {
     .then(response => this.populateList(response));
   }
 
-  publicList(response) {
-    for (let i = 0; i < response.length(), i++) {
-      this.lists.push(response[i]);
+  populateList(response) {
+    console.log(response);
+    console.log(typeof response);
+    for (let list of response) {
+      this.lists.push(list);
     }
   }
 

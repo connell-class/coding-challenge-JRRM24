@@ -1,9 +1,11 @@
 
+<button (click)="goBack()">go back</button>
+
 <h1>{{list.title}}</h1>
-<a routerLink="/detail/{{list.id}}">Change List and View Details</a>
 <ol>
     <li *ngFor="let item of items">
         {{item.name}}
         <p>Type: {{item.type}}</p>
+        <button click="deleteItem(item.id)">Remove From Grocery List</button>
     </li>
 </ol>

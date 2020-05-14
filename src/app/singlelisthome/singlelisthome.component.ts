@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import {GroceryListService} from 'C:/Users/jorda/Documents/angularstuff/coding_challenge/grocery-app/src/app/grocery-list.service'
 import {GroceryItemService} from 'C:/Users/jorda/Documents/angularstuff/coding_challenge/grocery-app/src/app/grocery-item.service'
+@Component({
   selector: 'app-singlelisthome',
   templateUrl: './singlelisthome.component.html',
   styleUrls: ['./singlelisthome.component.css']
@@ -18,13 +19,16 @@ export class SinglelisthomeComponent implements OnInit {
   ngOnInit(): void {
    let id = this.list.id;
    this.groceryItemSerivce.getItemsByListId(id)
-   .then(response => this.populateList(response))
+   .then(response => this.populateList(response));
+   console.log(this.items);
 
   }
 populateList(object) {
-  for (let i = 0; i < object.length(), i++) {
-    this.items.push(object[i]);
+  console.log(object);
+  for (let item of object) {
+    this.items.push(item);
   }
+  
 }
 }
 
