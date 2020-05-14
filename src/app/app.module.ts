@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomelistComponent } from './homelist/homelist.component';
 import { SinglelisthomeComponent } from './singlelisthome/singlelisthome.component';
 import { GroceryDetailsComponent } from './grocery-details/grocery-details.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GroceryDetailsComponent } from './grocery-details/grocery-details.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

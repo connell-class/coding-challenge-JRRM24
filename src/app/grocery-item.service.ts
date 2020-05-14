@@ -17,8 +17,8 @@ public deleteItemById(id: number) {
   return this.http.delete<any>(`${this.url}/delete/${id}`).toPromise();
 }
 
-public saveItem(type, list_id) {
-  return this.http.get<any>(`${this.url}/create/${type}/${list_id}`).toPromise();
+public saveItem(type, list_id, name) {
+  return this.http.get<any>(`${this.url}/create/${type}/${list_id}/${name}`).toPromise();
 }
 
 }

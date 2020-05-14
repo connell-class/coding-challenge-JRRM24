@@ -6,6 +6,27 @@
     <li *ngFor="let item of items">
         {{item.name}}
         <p>Type: {{item.type}}</p>
-        <button click="deleteItem(item.id)">Remove From Grocery List</button>
+        
+        <button (click)="deleteItem(item)">Remove From Grocery List</button>
     </li>
 </ol>
+
+<h1>Add something else to your list</h1>
+<form>
+    <div class="form-group">
+      <label for="item">Item</label>
+      <input type="text" class="form-control" id="name" required
+      [(ngModel)]="itemName" name="name"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input type="text" class="form-control" id="type"
+      [(ngModel)]="itemType" name="type"
+      >
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="newItem()" >Submit</button>
+
+  </form>

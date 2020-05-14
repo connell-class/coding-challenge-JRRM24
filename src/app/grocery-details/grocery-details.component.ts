@@ -10,7 +10,9 @@ import {GroceryItemService} from 'C:/Users/jorda/Documents/angularstuff/coding_c
   styleUrls: ['./grocery-details.component.css']
 })
 export class GroceryDetailsComponent implements OnInit {
-
+  itemName;
+  itemType;
+  selectedItem;
   list;
   items = [];
   constructor(
@@ -20,10 +22,17 @@ export class GroceryDetailsComponent implements OnInit {
     private groceryListService: GroceryListService
   ) { }
 
-  deleteItem(id) {
-
+  deleteItem(deleted) {
+    const id = deleted.id; 
+    this.groceryItemSerivce.deleteItemById(id);
+    alert("The item was deleted.");
   }
-  
+
+  newItem() {
+    this.groceryItemSerivce.saveItem(this.itemType, this.list.id, this.itemName)
+    alert("Item saved!");
+  }
+
   ngOnInit(): void {
   const id = +this.route.snapshot.paramMap.get('id');
   this.groceryListService.getListById(id)
